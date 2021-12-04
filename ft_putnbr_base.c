@@ -30,15 +30,10 @@ void	ft_putnbr_hexa(int nb, int caps)
 		nbr = -nbr;
 		ft_putchar('-');
 	}
-	if (nbr <= 16)
+	if (nbr <= 15)
 	{
-		if (caps == 0)
-		{
-			if (nbr > 10 && nbr <= 16)
-				ft_putchar(HEXA[nbr] - 32);
-			else
-				ft_putchar(HEXA[nbr]);
-		}
+		if (caps == 0 && (nbr >= 10 && nbr <= 15))
+			ft_putchar(HEXA[nbr] + 32);
 		else
 			ft_putchar(HEXA[nbr]);
 	}
@@ -51,5 +46,9 @@ void	ft_putnbr_hexa(int nb, int caps)
 
 int	main()
 {
-	ft_putnbr_hexa(16, 0);
+	for (int i = 0; i <= 100; i++)
+	{
+	    ft_putnbr_hexa(i, 0);
+	    printf("\n");
+	}
 }
