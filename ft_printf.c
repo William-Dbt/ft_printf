@@ -6,78 +6,67 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 12:08:52 by wdebotte          #+#    #+#             */
-/*   Updated: 2021/12/04 17:17:48 by wdebotte         ###   ########.fr       */
+/*   Updated: 2021/12/05 17:48:29 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
+#include "ft_printf.h"
+//#include <stdio.h>
 
-void	ft_putchar(char	c)
+static int	ft_print_var(va_list args, char c)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	while (*str != '\0')
-	{
-		ft_putchar(*str);
-		str++;
-	}
-}
-
-static void	ft_print_var(va_list args, char c)
-{
-	(void)args;
 	if (c == 'c')
-		ft_putchar(va_arg(args, int));
-	/*else if (c == 's')
-		STUFF HERE
-	else if (c == 'p')
+		ft_printf_putchar(va_arg(args, int));
+	else if (c == 's')
+		return (ft_printf_putstr(va_arg(args, char *)));
+	/*else if (c == 'p')
 		STUFF HERE
 	else if (c == 'd')
 		STUFF HERE
 	else if (c == 'i')
 		STUFF HERE
 	else if (c == 'u')
-		STUFF HERE
-	else if (c == 'x')
-		STUFF HERE
-	else if (c == 'X')
 		STUFF HERE*/
+	else if (c == 'x')
+		return (ft_printf_putnbr_hexa(va_arg(args, int), 0, 1));
+	else if (c == 'X')
+		return (ft_printf_putnbr_hexa(va_arg(args, int), 1, 1));
 	else if (c == '%')
-		ft_putchar('%');
+		ft_printf_putchar('%');
 	else
-	{
-		ft_putchar('%');
-		ft_putchar(c);
-	}
+		return (ft_printf_putstr("(null)"));
+	return (1);
 }
 
 int	ft_printf(const char *str, ...)
 {
+	int		char_count;
 	va_list	args;
 
+	char_count = 0;
 	va_start(args, str);
 	while (*str != '\0')
 	{
 		if (*str == '%')
 		{
 			str++;
-			ft_print_var(args, *str);
+			char_count += ft_print_var(args, *str);
 		}
 		else
-			ft_putchar(*str);
+		{
+			ft_printf_putchar(*str);
+			char_count++;
+		}
 		str++;
 	}
-	ft_putchar('\n');
 	va_end(args);
-	return (0);
+	return (char_count);
 }
-
+/*
 int	main(void)
 {
-	ft_printf("Coucou %ce suis %coto %c%c rigo%%lo", 'j', 't', 'l', 'e');
-}
+	int x = ft_printf("%s%ce su%%is %se rigolo\n%x | %X\n", "Coucou ", 'c', "toto l", 42, 42);
+	int y = printf("%s%ce su%%is %se rigolo\n%x | %X\n", "Coucou ", 'c', "toto l", 42, 42);
+
+	printf("-> %i | %i\n", x, y);
+}*/
