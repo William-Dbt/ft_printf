@@ -6,17 +6,17 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 16:13:07 by wdebotte          #+#    #+#             */
-/*   Updated: 2021/12/08 08:53:40 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/05 13:58:58 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define HEXA "0123456789abcdef"
-
 # include <unistd.h>
 # include <stdarg.h>
+
+# define HEXA "0123456789abcdef"
 
 int		ft_printf(const char *str, ...);
 int		ft_printf_strlen(char *str);
