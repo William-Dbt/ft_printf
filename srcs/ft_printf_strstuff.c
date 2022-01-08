@@ -6,11 +6,11 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:20:17 by wdebotte          #+#    #+#             */
-/*   Updated: 2021/12/06 13:05:30 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/08 19:14:01 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	ft_printf_putchar(char c)
 {

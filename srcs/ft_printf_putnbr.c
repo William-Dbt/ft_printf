@@ -6,11 +6,11 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:19:15 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/05 13:52:23 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/08 19:13:50 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_printf_putnbr(int nb, int count)
 {
