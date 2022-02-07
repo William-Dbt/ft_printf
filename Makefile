@@ -6,7 +6,7 @@
 #    By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/05 17:33:31 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/11 11:24:14 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/02/07 12:56:07 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ HEADER		= ft_printf.h
 
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
+INCS		= -I.
 
 RM			= rm -rf
 
@@ -39,7 +40,7 @@ strcompile:
 				@echo "${PREFIX} Compiling all ${GREEN}.c ${CYAN}to ${GREEN}.o ${CYAN}..."
 
 .c.o:
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+				${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${INCS}
 
 ${NAME}:	${OBJS}
 				@echo "${PREFIX} Making ${GREEN}${NAME} ${CYAN}library ..."
