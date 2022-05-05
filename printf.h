@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 16:13:07 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/05 13:58:58 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/05/05 23:01:25 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef PRINTF_H
+# define PRINTF_H
 
 # include <unistd.h>
 # include <stdarg.h>
 
-# define HEXA "0123456789abcdef"
+# define FALSE		0
+# define TRUE		1
+# define HEXA		"0123456789abcdef"
+# define HEXA_CAPS	"0123456789ABCDEF"
 
-int		ft_printf(const char *str, ...);
-int		ft_printf_strlen(char *str);
-int		ft_printf_putstr(char *str);
-int		ft_printf_putnbr(int nb, int count);
-int		ft_printf_putnbr_u(unsigned int nb, int count);
-int		ft_printf_putnbr_hexa(int nb, int caps, int count);
-int		ft_printf_putnbr_hexa_u(unsigned long long int nb, int count);
-
-void	ft_printf_putchar(char c);
+int	ft_printf(const char *str, ...);
+int	_putchar(char c);
+int	_strlen(char *str);
+int	_putstr(char *str);
+int	_putnbr(int nb, int count);
+int	_putnbr_uint(unsigned int nbr, int count);
+int	_putnbr_hexa(int nb, char *base, int count);
+int	_putnbr_hexa_ullint(unsigned long long int nbr, int count);
+int	is_valid_arg(char c);
 
 #endif
