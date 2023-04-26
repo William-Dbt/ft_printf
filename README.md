@@ -25,7 +25,7 @@ The following conversions are supported:
 
 To test this project the following tester were usefull:  
 - https://github.com/Tripouille/printfTester  
-It help me alot to understand leaks
+It helped me a lot to understand leaks
 
 ## Note
 
